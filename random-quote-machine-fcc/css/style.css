@@ -1,0 +1,93 @@
+body {
+  background-color: #6B5151;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+#qContainer {
+  background-color: #fff;
+  border: solid #555555;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 40px;
+  height: 18rem;
+  font-size: 25px;
+  color: #000000;
+}
+
+#quoteBox {
+  color: black;
+}
+#authBox {
+  margin-top: 50px;
+  text-align: right;
+  color: black;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#newQuote{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+#newQuote:hover {
+    background-color: #555555;
+    color: white;
+}
+#newQuote:focus {
+  outline: none;
+}
+
+#tweetQuote {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+#tweetQuote:hover {
+  background-color: #555555;
+  color: white;
+}
+
+#tweetQuote:focus {
+  outline: none;
+}
+#quoteHead {
+  background-color: #fff;
+  margin-top: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: black;
+  border: solid #555555;
+  border-radius: 5px;
+}
+
+#canvas {
+    position:absolute;
+    top:0;
+    left:0;
+}
+#bckgrd {
+  z-index: 10;
+  position: relative;
+}
