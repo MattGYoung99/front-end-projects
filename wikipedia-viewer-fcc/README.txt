@@ -1,3 +1,3 @@
-Wikipedia Viewer using AJAX and the wikipedia api 
+Wikipedia Viewer using AJAX and Wiki API
 
  
