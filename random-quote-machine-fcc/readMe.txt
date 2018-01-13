@@ -1,1 +1,1 @@
-Simple Quote Machine with animated canvas 
+Simple Quote Machine with animated canvas
