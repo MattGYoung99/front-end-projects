@@ -18,8 +18,8 @@ $(document).ready(function() {
        var deg = Math.round(result["main"]["temp"]);
        var deghigh = Math.round(result["main"]["temp_max"]);
        var deglow = Math.round(result["main"]["temp_min"]);
-       var $elem = $('body div.main');
-       /* if (desc === 'drizzle') {
+       var $elem = $('body div.a');
+       if (desc === 'drizzle') {
           $elem.append(
            $('<div/>', {'class': 'icon sun-shower'}).append(
               $('<div/>', {'class': 'cloud'}),
@@ -81,13 +81,10 @@ $(document).ready(function() {
          $('<div/>', {'class': 'rain'})
       )
   ) 
-       } */
-       $('#weathericon').removeClass('hiddenicon')
-       $('#brk').removeClass('hidden')
-       $('#brk2').removeClass('hidden')
-       $('#day').html(day)
-       $('#dateDayYear').html(fullDate)
-       $('#city').html("<br>" + result["name"] + ',' + result["sys"]["country"] )
+       } 
+       $('#icons').removeClass('hiddenicon')
+       $('#day').html(day + ' ' + fullDate);
+       $('#location').html("<br>" + result["name"] + ',' + result["sys"]["country"] )
        $('#degrees').html(deg + '° C' )
        $('#humidity').html('Humidity:' + "<br>" + result["main"]["humidity"] + '%')
        $('#highlow').html('High-Low: ' + deghigh + '°' + '-' + deglow + '°')
