@@ -1,5 +1,6 @@
 body {
-  background-color: #FF0000;
+  color: #fff;
+  background-color: #006d8f;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -9,6 +10,34 @@ body {
   margin: 0;
 }
 
+.transform {
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.transform-active {
+  background-color: #FFC200;
+  color: #000;
+}
+
+.transform-active .main {
+  border-top: #000 1px solid;
+  border-left: #000 1px solid;
+  border-right: #000 1px solid;
+}
+
+.transform-active .grid {
+  border-top: #000 1px solid;
+  border-bottom: #000 1px solid;
+}
+
+.transform-active .a {
+  border-right: #000 1px solid;
+}
+
 h1 {
   text-align: center;
 }
@@ -16,33 +45,36 @@ h1 {
 .main {
   margin-top: 25px;
   display: grid;
-  border: #fff 1px solid;
   width: 100%;
   box-sizing: border-box;
+  border-top: #fff 1px solid;
+  border-left: #fff 1px solid;
+  border-right: #fff 1px solid;
 }
 
-.location {
+.degrees {
   margin: 10px auto;
 }
 
 .grid {
   display: grid;
-  border: #fff 1px solid;
   grid-template-columns: repeat(2, 1fr);
+  border-top: #fff 1px solid;
+  border-bottom: #fff 1px solid;
 }
 
 .a {
-  border: #fff 1px solid;
   width: 100%;
   justify-self: center;
+  border-right: #fff 1px solid;
 }
 
 .b {
   padding-top: 50px;
+  padding-bottom: 10px;
   width: 100%;
   text-align: center;
-  border: #fff 1px solid;
-  font-size: 25px;
+  font-size: 40px;
 }
 
 @media (max-width: 360px) {

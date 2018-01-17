@@ -1,24 +1,35 @@
 $(document).ready(function() {  
     if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showInfo)
+      navigator.geolocation.getCurrentPosition(showInfo)
     } else {
-      alert ("This browser doesn't support geolocation!")
+      alert("This browser doesn't support geolocation!");
     }
-    
-    function showInfo(position) {
-      var months = ["Janurary","February","March","April","May","June","July","August","September","October","November","December"];
-      var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-      var x = new Date();
-      var fullDate = months[x.getMonth()] + ',' + " " +  x.getDate()  + ',' + " " + x.getFullYear();
-      var day = days[x.getDay()];
-      var lat = position.coords.latitude
-      var long = position.coords.longitude
-      $.getJSON( "https://fcc-weather-api.glitch.me/api/current?lat=" + lat +  "&lon=" + long, function(result) {
+
+
+$( "input" ).change(function() {
+  var $input = $( this );
+     if($input.prop("checked")) {
+       $('.transform').toggleClass('transform-active');
+     } else {
+       $('.transform').toggleClass('transform-active');
+     }
+  });
+ 
+ function showInfo(position) {
+  var months = ["Janurary","February","March","April","May","June","July","August","September","October","November","December"];
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var x = new Date();
+  var fullDate = months[x.getMonth()] + ',' + " " +  x.getDate()  + ',' + " " + x.getFullYear();
+  var day = days[x.getDay()];
+  var lat = position.coords.latitude
+  var long = position.coords.longitude
+  $.getJSON( "https://fcc-weather-api.glitch.me/api/current?lat=" + lat +  "&lon=" + long, function(result) {
+       console.log(result);
        var desc = result.weather[0].main.toLowerCase();
        var deg = Math.round(result["main"]["temp"]);
        var deghigh = Math.round(result["main"]["temp_max"]);
        var deglow = Math.round(result["main"]["temp_min"]);
-       var $elem = $('body div.a');
+       var $elem = $('body div.icons');
        if (desc === 'drizzle') {
           $elem.append(
            $('<div/>', {'class': 'icon sun-shower'}).append(
@@ -84,12 +95,11 @@ $(document).ready(function() {
        } 
        $('#icons').removeClass('hiddenicon')
        $('#day').html(day + ' ' + fullDate);
-       $('#location').html("<br>" + result["name"] + ',' + result["sys"]["country"] )
-       $('#degrees').html(deg + '° C' )
-       $('#humidity').html('Humidity:' + "<br>" + result["main"]["humidity"] + '%')
-       $('#highlow').html('High-Low: ' + deghigh + '°' + '-' + deglow + '°')
-       $('#wind').html('Wind Speed: ' + "<br>" + result["wind"]["speed"] + 'mph')
-       $('#pressure').html('Pressure:' + "<br>" + result["main"]["pressure"] + 'hPa')
+       $('#location').text('The Tempature in' + ' ' + result["name"] + ',' + ' ' + result["sys"]["country"] + ' is' + ' ' + deg + ' ° C' )
+       $('#humidity').text('Humidity: ' + result["main"]["humidity"] + '%')
+       $('#highlow').text('High-Low: ' + deghigh + '°C' + '  ' + '|' + '  ' +deglow + '°C')
+       $('#wind').text('Wind Speed: ' + result["wind"]["speed"] + ' ' + 'mph')
+       $('#pressure').text('Pressure:' + "<br>" + result["main"]["pressure"] + 'hPa')
        $('#sky').html('Description:  ' + result.weather[0].main)
           function setCelcius(num) {
            return num;
@@ -101,11 +111,11 @@ $(document).ready(function() {
           $(function() {
           $("#celciusfahrenheit").change(function() {
             if ($(this).prop('checked')) {
-              $("#degrees").html(setCelcius(deg) + '° C');
-              $("#highlow").html('High-Low: ' + setCelcius(deghigh) + '°' + '-' + setCelcius(deglow) + '°')
+              $("#degrees").html(setCelcius(deg) + '°C');
+              $("#highlow").html('High-Low: ' + setCelcius(deghigh) + '°C' + ' ' + '|' + ' ' + setCelcius(deglow) + '°C')
             } else {
-              $("#degrees").html(setFahrenheit(deg) + '° F');
-              $("#highlow").html('High-Low: ' + setFahrenheit(deghigh) + '°' + '-' + setFahrenheit(deglow) + '°')
+              $("#degrees").html(setFahrenheit(deg) + '°F');
+              $("#highlow").html('High-Low: ' + setFahrenheit(deghigh) + '°F ' + ' ' + '|' + ' ' + setFahrenheit(deglow) + '°F')
             }
           }) 
           }); 

@@ -9,26 +9,28 @@
     <link rel='stylesheet prefetch' href='https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css'>
     <link rel="stylesheet" href="scss/styles.css">
   </head>
-<body>
+<body class="transform">
 <h1>Simple Weather APP</h>
 <div class="main">
-<div class="location">Collierville, Tennessee</div>
+<div class="degrees">
+  <p id="location"></p>
+</div>
  <div class="grid">
-  <div id="icons" class="a">
+  <div class="a">
+    <div class="icons">
+
     </div>
-    <div class="b">
-      <p>Humidity: 85%</p>
-      <p>High-Low: -5° & -7°</p>
-      <p>Wind Speed: 6.2mph</p>
-      <p>Description: Clouds</p>
-           <input id="celciusfahrenheit" type="checkbox" checked data-toggle="toggle" data-onstyle="info" data-offstyle="warning" data-on="C°" data-off="F°" data-style="slow">
-    </div>
-    <div>
-      <p id="day"></p>
-    </div>
-    <div>
-        <p>It's 68° and Sunny outside</p>
-    </div>
+    <p id="day"></p>
+  </div>
+  <div class="b">
+      <p id='humidity'></p>
+      <p id='highlow'></p>
+      <p id='wind'></p>
+      <p id='sky'></p>
+  <form>
+    <input id="celciusfahrenheit" type="checkbox" checked="checked" data-toggle="toggle" data-onstyle="info" data-offstyle="warning" data-on="C°" data-off="F°" data-style="slow">
+  </form>
+  </div>
   </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
