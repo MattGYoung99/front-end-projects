@@ -1,3 +1,2 @@
-Simple weather app /w API
-
+Simple weather app /w API redone
  
